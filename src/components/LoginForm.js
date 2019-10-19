@@ -4,7 +4,7 @@ class LoginForm extends Component {
   constructor () {
     super();
     this.state = {
-      usuario: '',
+      user: '',
       password: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -15,7 +15,7 @@ class LoginForm extends Component {
     e.preventDefault();
     this.props.onAddTodo(this.state);
     this.setState({
-      usuario: '',
+      user: '',
       password: ''
     });
   }
@@ -35,11 +35,11 @@ class LoginForm extends Component {
           <div className="form-group">
             <input
               type="text"
-              name="usuario"
+              name="user"
               className="form-control"
-              value={this.state.usuario}
+              value={this.state.user}
               onChange={this.handleInputChange}
-              placeholder="Usuario"
+              placeholder="User"
               />
           </div>
           <div className="form-group">
@@ -49,7 +49,7 @@ class LoginForm extends Component {
               className="form-control"
               value={this.state.responsible}
               onChange={this.handleInputChange}
-              placeholder="Contraseña"
+              placeholder="Password"
               />
           </div>
           <button type="submit" className="btn btn-primary">

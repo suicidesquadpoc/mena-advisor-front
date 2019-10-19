@@ -10,27 +10,14 @@ import LoginForm from './components/LoginForm';
 class App extends Component {
   constructor() {
     super();
-    /*this.state = {
-      todos
-    }*/
     this.handleAddLogin = this.handleAddLogin.bind(this);
   }
 
-  /*removeTodo(index) {
-    this.setState({
-      todos: this.state.todos.filter((e, i) => {
-        return i !== index
-      })
-    });
-  }*/
-
   handleAddLogin() {
-    console.log('Hago mi inicio de session');
+    console.log('action of login');
   }
 
   render() {
-    
-
     // RETURN THE COMPONENT
     return (
       <div className="App">
@@ -56,27 +43,5 @@ class App extends Component {
     );
   }
 }
-
-
-/*function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}*/
 
 export default App;
