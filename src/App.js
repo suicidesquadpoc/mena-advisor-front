@@ -1,8 +1,64 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
 
-function App() {
+// csubcomponents
+import LoginForm from './components/LoginForm';
+
+
+class App extends Component {
+  constructor() {
+    super();
+    /*this.state = {
+      todos
+    }*/
+    this.handleAddLogin = this.handleAddLogin.bind(this);
+  }
+
+  /*removeTodo(index) {
+    this.setState({
+      todos: this.state.todos.filter((e, i) => {
+        return i !== index
+      })
+    });
+  }*/
+
+  handleAddLogin() {
+    console.log('Hago mi inicio de session');
+  }
+
+  render() {
+    
+
+    // RETURN THE COMPONENT
+    return (
+      <div className="App">
+
+        <nav className="navbar navbar-dark bg-dark">
+          <a className="navbar-brand" href="/">
+            Tasks
+            <span className="badge badge-pill badge-light ml-2">
+              (1)
+            </span>
+          </a>
+        </nav>
+
+        <div className="container">
+          <div className="row mt-4">
+            <div className="col-md-4 text-center">
+                <img src={logo} className="App-logo" alt="logo" />
+              <LoginForm onAddTodo={this.handleAddLogin}></LoginForm>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+/*function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +77,6 @@ function App() {
       </header>
     </div>
   );
-}
+}*/
 
 export default App;
