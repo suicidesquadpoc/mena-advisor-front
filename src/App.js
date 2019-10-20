@@ -2,9 +2,11 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 // csubcomponents
 import LoginForm from './components/LoginForm';
+import RegistryForm from './components/RegistryForm';
 
 
 class App extends Component {
@@ -17,29 +19,46 @@ class App extends Component {
     console.log('action of login');
   }
 
+  handleAddRegistry(){
+    console.log('Proces registry contact');
+  }
+
   render() {
     // RETURN THE COMPONENT
     return (
-      <div className="App">
+      
 
-        <nav className="navbar navbar-dark bg-dark">
-          <a className="navbar-brand" href="/">
-            Tasks
-            <span className="badge badge-pill badge-light ml-2">
-              (1)
-            </span>
-          </a>
-        </nav>
+<div className="App">
+               <nav className="navbar navbar-dark bg-dark">
+                  <a className="navbar-brand" href="/">
+                    Tasks
+                    <span className="badge badge-pill badge-light ml-2">
+                      (1)
+                    </span>
+                  </a>
+                </nav>
+                <div className="container">
+                <Router>
+      <Route exact path="/" render={ ()=> {
+          return  <div className="row mt-4">
+                    <div className="col-md-4 text-center">
+                        <img src={logo} className="App-logo" alt="logo" />
+                      <LoginForm onAddTodo={this.handleAddLogin}></LoginForm>
+                    </div>
+                  </div>
+         
+        }}>
+        </Route>
 
-        <div className="container">
-          <div className="row mt-4">
-            <div className="col-md-4 text-center">
-                <img src={logo} className="App-logo" alt="logo" />
-              <LoginForm onAddTodo={this.handleAddLogin}></LoginForm>
-            </div>
+        <Route path="/registry" component={RegistryForm}/>
+      </Router>
+            
+
+                </div>
           </div>
-        </div>
-      </div>
+      
+        
+      
     );
   }
 }
