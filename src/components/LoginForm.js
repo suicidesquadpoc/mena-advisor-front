@@ -1,28 +1,32 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class LoginForm extends Component {
-  constructor () {
+  constructor() {
     super();
     this.state = {
-      user: '',
-      password: ''
+      user: "",
+      password: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
+
   handleSubmit(e) {
-    e.preventDefault();
-    this.props.onAddTodo(this.state);
-    this.setState({
-      user: '',
-      password: ''
-    });
+    //e.preventDefault();
+    //this.props.onAddTodo(this.state);
+    /*this.setState({
+      user: "",
+      password: ""
+    });*/
+
+    this.props.history.push('/home')
   }
 
   handleInputChange(e) {
-    const {value, name} = e.target;
+    const { value, name } = e.target;
     console.log(value, name);
     this.setState({
       [name]: value
@@ -41,17 +45,17 @@ class LoginForm extends Component {
               value={this.state.user}
               onChange={this.handleInputChange}
               placeholder="User"
-              />
+            />
           </div>
           <div className="form-group">
             <input
               type="text"
               name="password"
               className="form-control"
-              value={this.state.responsible}
+              value={this.state.password}
               onChange={this.handleInputChange}
               placeholder="Password"
-              />
+            />
           </div>
           <button type="submit" className="btn btn-primary">
             Login
@@ -59,9 +63,8 @@ class LoginForm extends Component {
           <Link to="/registry">Registry</Link>
         </form>
       </div>
-    )
+    );
   }
-
 }
 
 export default LoginForm;
